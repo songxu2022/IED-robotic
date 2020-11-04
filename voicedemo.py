@@ -5,26 +5,11 @@ Created on Wed Oct 28 00:33:31 2020
 
 @author: kr7
 """
-
-import subprocess 
-import wolframalpha  
-import json 
-import random 
 import speech_recognition as sr 
 import datetime 
 import wikipedia 
-import webbrowser 
-import os 
-import pyjokes 
-import smtplib 
-import ctypes 
-import time 
-import requests 
 import shutil 
 from twilio.rest import Client  
-from ecapture import ecapture as ec 
-from urllib.request import urlopen 
-import playsound
 import pyttsx3
 
 engine = pyttsx3.init() 
