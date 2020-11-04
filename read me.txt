@@ -1,0 +1,10 @@
+using pip install following package
+pip install SpeechRecognition
+pip install wikipedia
+pip install shut
+pip install twill
+pip install pyttsx3
+
+enter phone number at line 115
+
+speak send message (some content)
