@@ -1,0 +1,5 @@
+pip install SpeechRecognition
+pip install wikipedia
+pip install shut
+pip install twill
+pip install pyttsx3
