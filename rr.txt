@@ -1,5 +1,5 @@
 pip install SpeechRecognition
 pip install wikipedia
-pip install shut
+pip install pytest-shutil
 pip install twill
 pip install pyttsx3
