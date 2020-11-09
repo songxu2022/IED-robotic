@@ -11,6 +11,8 @@ import wikipedia
 import shutil 
 from twilio.rest import Client  
 import pyttsx3
+import pyjokes
+from ecapture import ecapture as ec 
 
 engine = pyttsx3.init() 
 voices = engine.getProperty('voices')
@@ -31,13 +33,13 @@ def speak(output):
 def wishMe(): 
 	hour = int(datetime.datetime.now().hour) 
 	if hour>= 0 and hour<12: 
-		speak("Good Morning Sir !") 
+		speak("Good Morning!") 
 
 	elif hour>= 12 and hour<18: 
-		speak("Good Afternoon Sir !") 
+		speak("Good Afternoon!") 
 
 	else: 
-		speak("Good Evening Sir !") 
+		speak("Good Evening!") 
 
 	assname =("Jarvis 1 point o") 
 	speak("I am your Assistant") 
@@ -45,9 +47,9 @@ def wishMe():
 	
 
 def usrname(): 
-	speak("What should i call you sir") 
+	speak("What should i call you") 
 	uname = takeCommand() 
-	speak("Welcome Mister") 
+	speak("Welcome") 
 	speak(uname) 
 	columns = shutil.get_terminal_size().columns 
 	
@@ -55,7 +57,7 @@ def usrname():
 	print("Welcome Mr.", uname.center(columns)) 
 	print("#####################".center(columns)) 
 	
-	speak("How can i Help you, Sir") 
+	speak("How can i Help you") 
 
 def takeCommand(): 
 	
@@ -112,13 +114,62 @@ if __name__ == '__main__':
 								.create( 
 									body = takeCommand(), 
 									from_='+12052735226', 
-									to =''
+									to ='+15189615489'
 								) 
 
 				print(message.sid) 
 
+		elif 'how are you' in query: 
+			speak("I am good, Thank you") 
 
+		elif 'fine' in query or "good" in query: 
+			speak("It's good to know that your fine") 
 
+		elif "change my name to" in query: 
+			query = query.replace("change my name to", "") 
+			assname = query 
+
+		elif "change name" in query: 
+			speak("What would you like to call me") 
+			assname = takeCommand() 
+			speak("Thanks for naming me") 
+
+		elif "what's your name" in query or "What is your name" in query: 
+			speak("My friends call me") 
+			speak(assname) 
+			print("My friends call me", assname) 
+
+		elif 'exit' in query: 
+			speak("Thanks for giving me your time") 
+			exit() 
+
+		elif "who made you" in query or "who created you" in query: 
+			speak("I have been created by the robotic group.") 
+			
+		elif 'joke' in query: 
+			speak(pyjokes.get_joke()) 
+			
+		elif "camera" in query or "take a photo" in query: 
+			(ec.capture(0,True,"img.jpg"))
+
+		elif "write a note" in query: 
+			speak("What should i write, sir") 
+			note = takeCommand() 
+			file = open('jarvis.txt', 'w') 
+			speak("Sir, Should i include date and time") 
+			snfm = takeCommand() 
+			if 'yes' in snfm or 'sure' in snfm: 
+				strTime = datetime.datetime.now().strftime("% H:% M:% S") 
+				file.write(strTime) 
+				file.write(" :- ") 
+				file.write(note) 
+			else: 
+				file.write(note)
+            
+		elif "read note" in query: 
+			speak("Showing Notes") 
+			file = open("jarvis.txt", "r") 
+			print(file.read())            
 		# elif "" in query: 
 			# Command go here 
 			# For adding more commands 
