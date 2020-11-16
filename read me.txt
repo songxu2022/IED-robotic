@@ -1,10 +1,29 @@
-using pip install following package
-pip install SpeechRecognition
-pip install wikipedia
-pip install shut
-pip install twill
-pip install pyttsx3
+using pip or conda install following package:
+SpeechRecognition
+wikipedia
+shut
+twilio
+pyttsx3
+pyjokes
+******************************************
+Enter your phone number at line 115
+******************************************
+Speaking commands:
 
-enter phone number at line 115
+wikipedia + .....
+send message + ....
+how are you
+fine/good
+change my name to + ...
+change name + ...
+whats your name / what is your name
+exit
+who made you
+joke
+camera/take a photo
+write a note + ...
+read note
 
-speak send message (some content)
+##########################################
+REMEMBER SPEAK EXIT AT THE END !!!!!!!
+##########################################
